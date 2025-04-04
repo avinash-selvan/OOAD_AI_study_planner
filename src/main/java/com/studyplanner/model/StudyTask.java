@@ -1,5 +1,7 @@
 package com.studyplanner.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class StudyTask {
     private String title;
     private String description;
     private boolean completed;
+    private LocalDate dueDate;
 
     // Getters and Setters
     public Long getId() {
@@ -41,5 +44,13 @@ public class StudyTask {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public LocalDate getDueDate() { // ✅ Add this if missing
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) { // ✅ Add this if missing
+        this.dueDate = dueDate;
     }
 }
