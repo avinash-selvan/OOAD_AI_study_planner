@@ -1,3 +1,6 @@
+### python Venv ###
+.ai-flask-module/venv
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar

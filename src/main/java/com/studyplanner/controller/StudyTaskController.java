@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.studyplanner.ai.AIPlanner;
 import com.studyplanner.model.StudyTask;
 import com.studyplanner.repository.StudyTaskRepository;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -43,6 +45,16 @@ public class StudyTaskController {
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         studyTaskRepository.deleteById(id);
+    }
+
+    @Autowired
+    private AIPlanner aiPlanner;
+
+    @PostMapping("/ai/recommend")
+    public Map<String, Double> getStudyRecommendation(@RequestBody Map<String, Object> input) {
+        List<String> topics = (List<String>) input.get("topics");
+        double time = Double.parseDouble(input.get("timeAvailable").toString());
+        return aiPlanner.generateStudyPlan(topics, time);
     }
 }
 
