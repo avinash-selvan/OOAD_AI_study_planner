@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EqualTimeStrategy implements StudyPlanStrategy {
+public class EqualTimeStrategy implements PostAIStrategy {
 
     @Override
     public Map<String, Double> distributeTime(List<String> topics, Map<String, Double> aiPlan, double timeAvailable) {
@@ -16,10 +16,5 @@ public class EqualTimeStrategy implements StudyPlanStrategy {
         }
 
         return result;
-    }
-
-    @Override
-    public Map<String, Double> generatePlan(List<String> topics, int timeAvailable) {
-        return null; // Optional: You can leave this empty if you're using only the distributeTime() method
     }
 }

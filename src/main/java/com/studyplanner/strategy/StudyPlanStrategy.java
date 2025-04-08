@@ -5,5 +5,4 @@ import java.util.Map;
 
 public interface StudyPlanStrategy {
     Map<String, Double> generatePlan(List<String> topics, int timeAvailable);
-    Map<String, Double> distributeTime(List<String> topics, Map<String, Double> aiPlan, double timeAvailable);
 }

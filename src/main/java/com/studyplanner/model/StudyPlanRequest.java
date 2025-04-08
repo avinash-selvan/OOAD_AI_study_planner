@@ -5,6 +5,8 @@ import java.util.List;
 public class StudyPlanRequest {
     private List<String> topics;
     private int timeAvailable;
+    private String strategy;
+
 
     // Getters and setters
     public List<String> getTopics() {
@@ -21,6 +23,14 @@ public class StudyPlanRequest {
 
     public void setTimeAvailable(int timeAvailable) {
         this.timeAvailable = timeAvailable;
+    }
+
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
+    }
+
+    public String getStrategy(){
+        return strategy;
     }
 }
 

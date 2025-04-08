@@ -3,7 +3,7 @@ package com.studyplanner.ai;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.studyplanner.strategy.StudyPlanStrategy;
+import com.studyplanner.strategy.PostAIStrategy;
 
 import org.springframework.http.*;
 import java.util.*;
@@ -11,10 +11,10 @@ import java.util.*;
 @Service
 public class pythonAIAdapter implements AIPlanner {
 
-    private StudyPlanStrategy strategy;
+    private PostAIStrategy strategy;
     private static final String AI_URL = "http://localhost:5005/plan"; // Python Flask app URL
 
-    public pythonAIAdapter(StudyPlanStrategy strategy) {
+    public pythonAIAdapter(PostAIStrategy strategy) {
         this.strategy = strategy;
     }
     
