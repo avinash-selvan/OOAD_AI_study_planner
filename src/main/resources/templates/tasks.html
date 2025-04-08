@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Study Tasks</h1>
+
+    <form action="/api/tasks" method="post">
+        <label>Title:</label><br>
+        <input type="text" name="title" /><br>
+
+        <label>Description:</label><br>
+        <input type="text" name="description" /><br>
+
+        <label>Due Date:</label><br>
+        <input type="date" name="dueDate" /><br><br>
+
+        <input type="submit" value="Create Task" />
+    </form>
+
+    <hr>
+    <p><strong>To view tasks:</strong> You can test with Postman or add view logic with Thymeleaf later.</p>
+</body>
+</html>

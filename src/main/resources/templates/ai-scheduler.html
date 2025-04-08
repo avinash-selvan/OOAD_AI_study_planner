@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AI Study Scheduler</title>
+</head>
+<body>
+    <h1>AI-Powered Study Scheduler</h1>
+
+    <form action="/api/tasks/ai/recommend" method="post">
+        <label>Topics (comma separated):</label><br>
+        <input type="text" name="topics" /><br><br>
+
+        <label>Time Available (in hours):</label><br>
+        <input type="number" name="timeAvailable" /><br><br>
+
+        <label>Strategy:</label><br>
+        <select name="strategy">
+            <option value="equal">Equal Time</option>
+            <option value="prioritybasedstrategy">Priority Based</option>
+        </select><br><br>
+
+        <input type="submit" value="Get Recommendation" />
+    </form>
+</body>
+</html>

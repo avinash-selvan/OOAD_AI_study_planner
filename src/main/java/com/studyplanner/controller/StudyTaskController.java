@@ -54,7 +54,8 @@ public class StudyTaskController {
     public Map<String, Double> getStudyRecommendation(@RequestBody Map<String, Object> input) {
         List<String> topics = (List<String>) input.get("topics");
         double time = Double.parseDouble(input.get("timeAvailable").toString());
-        return aiPlanner.generateStudyPlan(topics, time);
+        String strategy = input.getOrDefault("strategy", "equaltimestrategy").toString();
+        return aiPlanner.generateStudyPlan(topics, time, strategy);
     }
 }
 

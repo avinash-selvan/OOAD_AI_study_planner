@@ -2,6 +2,8 @@ package com.studyplanner.model;
 
 import java.util.List;
 
+// import com.studyplanner.strategy.PostAIStrategy;
+
 public class StudyPlanRequest {
     private List<String> topics;
     private int timeAvailable;
@@ -28,7 +30,7 @@ public class StudyPlanRequest {
     public void setStrategy(String strategy) {
         this.strategy = strategy;
     }
-
+    
     public String getStrategy(){
         return strategy;
     }
