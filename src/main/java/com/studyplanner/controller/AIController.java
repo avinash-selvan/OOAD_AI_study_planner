@@ -1,5 +1,6 @@
 package com.studyplanner.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,12 +9,18 @@ import java.util.Map;
 
 import com.studyplanner.ai.pythonAIAdapter; // change if your adapter package is different
 import com.studyplanner.model.StudyPlanRequest; // path to where you put StudyPlanRequest.java
+import com.studyplanner.strategy.StudyPlanStrategy;
 
 @RestController
 @RequestMapping("/api/ai")
 public class AIController {
 
-    private final pythonAIAdapter aiAdapter = new pythonAIAdapter();
+    private final pythonAIAdapter aiAdapter;
+
+    @Autowired
+    public AIController(pythonAIAdapter aiAdapter) {
+        this.aiAdapter = aiAdapter;
+    }
 
     @PostMapping("/generate-plan")
     public ResponseEntity<?> getStudyPlan(@RequestBody StudyPlanRequest request) {
