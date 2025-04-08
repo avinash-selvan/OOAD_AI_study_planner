@@ -39,5 +39,5 @@ public class pythonAIAdapter implements AIPlanner {
 
         // Apply strategy on the AI plan (for example, re-balancing)
         return strategy.distributeTime(topics, aiPlan, timeAvailable);
-}
+    }
 }
