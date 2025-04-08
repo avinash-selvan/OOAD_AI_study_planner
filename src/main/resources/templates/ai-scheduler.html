@@ -2,24 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>AI Study Scheduler</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, select, button { margin: 5px 0; padding: 5px; }
+        #output { margin-top: 20px; background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    </style>
 </head>
 <body>
-    <h1>AI-Powered Study Scheduler</h1>
+    <h1>Smart Study Scheduler</h1>
 
-    <form action="/api/tasks/ai/recommend" method="post">
+    <form id="schedulerForm">
         <label>Topics (comma separated):</label><br>
-        <input type="text" name="topics" /><br><br>
+        <input type="text" id="topics" placeholder="e.g. DBMS, AI, ML"><br>
 
         <label>Time Available (in hours):</label><br>
-        <input type="number" name="timeAvailable" /><br><br>
+        <input type="number" id="time" step="0.5" min="1"><br>
 
         <label>Strategy:</label><br>
-        <select name="strategy">
+        <select id="strategy">
             <option value="equal">Equal Time</option>
             <option value="prioritybasedstrategy">Priority Based</option>
-        </select><br><br>
+            <!-- add more when you implement them -->
+        </select><br>
 
-        <input type="submit" value="Get Recommendation" />
+        <button type="submit">Generate Plan</button>
     </form>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("schedulerForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const topics = document.getElementById("topics").value.split(',').map(s => s.trim());
+            const time = parseFloat(document.getElementById("time").value);
+            const strategy = document.getElementById("strategy").value;
+
+            const response = await fetch("/api/tasks/ai/recommend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ topics, timeAvailable: time, strategy })
+            });
+
+            const data = await response.json();
+
+            let output = "<h3>Recommended Study Plan</h3><ul>";
+            for (let topic in data) {
+                output += `<li><strong>${topic}</strong>: ${data[topic]} hours</li>`;
+            }
+            output += "</ul>";
+
+            document.getElementById("output").innerHTML = output;
+        });
+    </script>
 </body>
 </html>

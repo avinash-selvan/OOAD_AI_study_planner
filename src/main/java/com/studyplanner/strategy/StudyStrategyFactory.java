@@ -5,6 +5,7 @@ public class StudyStrategyFactory {
     public static PostAIStrategy getStrategy(String strategyName) {
         switch (strategyName.toLowerCase()) {
             case "equal":
+            case "equalbasedstrategy":
                 return new EqualTimeStrategy();
             case "priority":
             case "prioritybasedstrategy":
