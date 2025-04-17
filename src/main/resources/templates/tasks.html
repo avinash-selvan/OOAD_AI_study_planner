@@ -6,20 +6,55 @@
 <body>
     <h1>Study Tasks</h1>
 
-    <form action="/api/tasks" method="post">
+    <form id="taskForm">
         <label>Title:</label><br>
-        <input type="text" name="title" /><br>
+        <input type="text" id="title" required /><br>
 
         <label>Description:</label><br>
-        <input type="text" name="description" /><br>
+        <input type="text" id="description" required /><br>
 
         <label>Due Date:</label><br>
-        <input type="date" name="dueDate" /><br><br>
+        <input type="date" id="dueDate" required /><br><br>
 
-        <input type="submit" value="Create Task" />
+        <button type="submit">Create Task</button>
     </form>
 
+    <div id="result" style="margin-top: 20px; color: green;"></div>
+
     <hr>
-    <p><strong>To view tasks:</strong> You can test with Postman or add view logic with Thymeleaf later.</p>
+    <p><strong>To view tasks:</strong> You can test with Postman or add Thymeleaf logic later.</p>
+
+    <script>
+        document.getElementById("taskForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // 🛑 Prevent default form POST
+
+            const task = {
+                title: document.getElementById("title").value,
+                description: document.getElementById("description").value,
+                dueDate: document.getElementById("dueDate").value,
+                completed: false
+            };
+
+            try {
+                const response = await fetch("/api/tasks", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(task)
+                });
+
+                if (response.ok) {
+                    document.getElementById("result").innerText = "✅ Task Created Successfully!";
+                    document.getElementById("taskForm").reset();
+                } else {
+                    document.getElementById("result").innerText = "❌ Failed to create task.";
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById("result").innerText = "⚠️ Something went wrong.";
+            }
+        });
+    </script>
 </body>
 </html>
