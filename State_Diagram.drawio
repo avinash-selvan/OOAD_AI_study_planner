@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.13">
+  <diagram name="Page-1" id="NPRM8aAJX2asyKeHZ-ue">
+    <mxGraphModel dx="583" dy="1192" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-5" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="08dFFLAHKytJ9jZSg-mk-1" target="08dFFLAHKytJ9jZSg-mk-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-6" value="Run AI Scheduler" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="08dFFLAHKytJ9jZSg-mk-5">
+          <mxGeometry x="-0.0769" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-1" value="Created" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="157" y="35" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-9" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="08dFFLAHKytJ9jZSg-mk-2" target="08dFFLAHKytJ9jZSg-mk-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-10" value="mark as Done (later enhancement)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="08dFFLAHKytJ9jZSg-mk-9">
+          <mxGeometry x="-0.0204" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-2" value="Scheduled (Recommended)" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="157" y="137" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-4" value="Completed" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="157" y="236" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-7" value="Create Task" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;fontSize=12;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="08dFFLAHKytJ9jZSg-mk-1">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="212" y="-63" as="sourcePoint" />
+            <mxPoint x="231" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="08dFFLAHKytJ9jZSg-mk-8" value="Initial State" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="163.5" y="-93" width="97" height="31" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

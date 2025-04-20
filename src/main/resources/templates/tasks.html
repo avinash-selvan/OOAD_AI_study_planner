@@ -22,11 +22,37 @@
     <div id="result" style="margin-top: 20px; color: green;"></div>
 
     <hr>
-    <p><strong>To view tasks:</strong> You can test with Postman or add Thymeleaf logic later.</p>
+    <h2>📋 Your Tasks</h2>
+    <div id="taskList"></div>
 
     <script>
+        async function fetchTasks() {
+            try {
+                const response = await fetch("/api/tasks");
+                const tasks = await response.json();
+
+                const taskListDiv = document.getElementById("taskList");
+                taskListDiv.innerHTML = "";
+
+                if (tasks.length === 0) {
+                    taskListDiv.innerHTML = "<p>No tasks found.</p>";
+                    return;
+                }
+
+                const ul = document.createElement("ul");
+                tasks.forEach(task => {
+                    const li = document.createElement("li");
+                    li.textContent = `📌 ${task.title} - ${task.description} | Due: ${task.dueDate} | Completed: ${task.completed ? "✅" : "❌"}`;
+                    ul.appendChild(li);
+                });
+                taskListDiv.appendChild(ul);
+            } catch (error) {
+                console.error("Failed to fetch tasks", error);
+            }
+        }
+
         document.getElementById("taskForm").addEventListener("submit", async function(event) {
-            event.preventDefault(); // 🛑 Prevent default form POST
+            event.preventDefault();
 
             const task = {
                 title: document.getElementById("title").value,
@@ -47,6 +73,7 @@
                 if (response.ok) {
                     document.getElementById("result").innerText = "✅ Task Created Successfully!";
                     document.getElementById("taskForm").reset();
+                    fetchTasks(); // Refresh list after creation
                 } else {
                     document.getElementById("result").innerText = "❌ Failed to create task.";
                 }
@@ -55,6 +82,9 @@
                 document.getElementById("result").innerText = "⚠️ Something went wrong.";
             }
         });
+
+        // Fetch tasks on initial load
+        fetchTasks();
     </script>
 </body>
 </html>
